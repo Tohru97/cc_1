@@ -7,6 +7,6 @@ public class TitleScene : MonoBehaviour
 {
     private async UniTaskVoid Awake()
     {
-        await AppManager.Instance.Init();
+        
     }
 }
