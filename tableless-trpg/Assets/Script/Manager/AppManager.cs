@@ -15,10 +15,20 @@ public class AppManager : Singleton<AppManager>
         AddressableManager.CreateInstance();
         SaveManager.CreateInstance();
         LocalizationManager.CreateInstance();
+        DataManager.CreateInstance();
+        GameManager.CreateInstance();
+        SoundManager.CreateInstance();
+        TimeManager.CreateInstance();
+        UIManager.CreateInstance();
 
         managers.Add(AddressableManager.Instance);
         managers.Add(SaveManager.Instance);
         managers.Add(LocalizationManager.Instance);
+        managers.Add(DataManager.Instance);
+        managers.Add(GameManager.Instance);
+        managers.Add(SoundManager.Instance);
+        managers.Add(TimeManager.Instance);
+        managers.Add(UIManager.Instance);
 
         for (int i = 0; i < managers.Count; i++)
         {

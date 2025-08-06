@@ -8,7 +8,7 @@ using UnityEngine;
 /// EasySave3를 사용하여 게임 데이터를 관리하는 싱글톤 매니저입니다.
 /// UniTask.RunOnThreadPool을 사용하여 메인 스레드 멈춤을 방지합니다.
 /// </summary>
-public class SaveManager : SingletonMono<SaveManager>, IInitializable
+public class SaveManager : Singleton<SaveManager>, IInitializable
 {
     private const string DefaultSaveFileName = "GameData.es3";
     private string saveFilePath;
