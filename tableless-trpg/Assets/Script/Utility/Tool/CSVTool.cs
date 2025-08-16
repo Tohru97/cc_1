@@ -120,9 +120,9 @@ public class CSVTool
         try
         {
             // 리스트 타입 처리
-            if (type.EndsWith("[]"))
+            if (type.StartsWith("List<") && type.EndsWith(">"))
             {
-                string elementType = type.Replace("[]", "");
+                string elementType = type.Substring(5, type.Length - 6);
                 string[] items = value.Split(';');
 
                 switch (elementType)
