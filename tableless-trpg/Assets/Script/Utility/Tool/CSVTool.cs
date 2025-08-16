@@ -14,7 +14,7 @@ public class CSVTool
     [MenuItem("Utilitys/CSVTool/EncryptCsvFile")]
     public static void EncryptCsvFile()
     {
-        string inputPath = Directory.GetParent(Directory.GetParent(Application.dataPath).FullName).FullName;
+        string inputPath = Path.Combine(Directory.GetParent(Directory.GetParent(Application.dataPath).FullName).FullName, "metadata");
         string outputPath = Application.dataPath + "/AddressableAssets/Table";
 
         if(string.IsNullOrEmpty(inputPath) || string.IsNullOrEmpty(outputPath))
