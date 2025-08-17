@@ -10,13 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Image
+  m_Name: Table
   m_EditorClassIdentifier: 
-  m_GroupName: Image
-  m_GUID: df25221cd3d0e455eb59cabe2213b789
+  m_GroupName: Table
+  m_GUID: 0fd88455f8eb9485bab38cfb1faf1421
   m_SerializeEntries:
-  - m_GUID: ac13fd5eb55e7eb47bcef8fdc5e7a6dd
-    m_Address: CatCouncil_Logo
+  - m_GUID: 1308ac66d80f24b5898cad1a8b792bcd
+    m_Address: event
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: febe4647716184418b44b690763dd622
+    m_Address: Localization
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -24,5 +29,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 6223fdd473f3f9a40bd5a0e48a21737f, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 03c8a252e69244a81a88aba3393939fe, type: 2}
-    - {fileID: 11400000, guid: 0b0be5447b4d84448aaa1a5c904e4a6d, type: 2}
+    - {fileID: 11400000, guid: b694ae42a87ac4cdcbf358af8013b401, type: 2}
+    - {fileID: 11400000, guid: 03bb6d931d2114e689a0a644aa9c03a9, type: 2}

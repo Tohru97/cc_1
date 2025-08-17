@@ -5,6 +5,8 @@ using UnityEditor;
 using System.Security.Cryptography;
 using System;
 using System.Collections.Generic;
+using Spine;
+using Newtonsoft.Json;
 
 public class CSVTool
 {
@@ -34,7 +36,7 @@ public class CSVTool
         foreach(string csvFilePath in csvFiles)
         {
             string fileName = Path.GetFileNameWithoutExtension(csvFilePath);
-            string encryptedPath = Path.Combine(outputPath, fileName + ".enc");
+            string encryptedPath = Path.Combine(outputPath, fileName + ".bytes");
 
             EncryptCsvFile(csvFilePath, encryptedPath);
         }
@@ -58,7 +60,7 @@ public class CSVTool
         }
     }
 
-    public static Dictionary<string, List<object>> DecryptCsvFile(byte[] encryptedBytes)
+    public static string DecryptCsvFile(byte[] encryptedBytes)
     {
         using (Aes aes = Aes.Create())
         {
@@ -70,9 +72,48 @@ public class CSVTool
             using (ICryptoTransform decryptor = aes.CreateDecryptor())
             {
                 byte[] plainText = decryptor.TransformFinalBlock(encryptedBytes, 0, encryptedBytes.Length);
-                return parseCSV(Encoding.UTF8.GetString(plainText));
+                return Encoding.UTF8.GetString(plainText);
             }
         }
+    }
+
+    public static List<Dictionary<string, string>> GetDecryptData(byte[] encryptedBytes)
+    {
+        string decryptedCsv = DecryptCsvFile(encryptedBytes);
+
+        var list = new List<Dictionary<string, string>>();
+        
+        var lines = decryptedCsv.Replace("\r\n", "\n").Replace('\r', '\n').Split('\n', StringSplitOptions.RemoveEmptyEntries);
+        
+        if (lines.Length < 2)
+        {
+            Debug.LogError("CSV data must have a header and at least one data line.");
+            return list;
+        }
+
+        var header = lines[0].Split(',');
+
+        for (int i = 1; i < lines.Length; i++)
+        {
+            var line = lines[i];
+            if (string.IsNullOrWhiteSpace(line)) continue;
+
+            var values = line.Split(',');
+            if (values.Length != header.Length)
+            {
+                Debug.LogWarning($"CSVTool: Row {i} has {values.Length} columns, but header has {header.Length}. Skipping row.");
+                continue;
+            }
+
+            var entry = new Dictionary<string, string>();
+            for (int j = 0; j < header.Length; j++)
+            {
+                entry[header[j].Trim()] = values[j].Trim();
+            }
+            list.Add(entry);
+        }
+
+        return list;
     }
 
     private static Dictionary<string, List<object>> parseCSV(string csvFile)

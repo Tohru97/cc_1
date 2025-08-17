@@ -35,6 +35,7 @@ public class AddressableManager : Singleton<AddressableManager>, IInitializable
         else
         {
             Debug.LogError("Asset failed to load: " + address);
+            Debug.LogError(handle.OperationException);
             return default;
         }
     }
