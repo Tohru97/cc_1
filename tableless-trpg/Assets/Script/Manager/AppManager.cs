@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class AppManager : Singleton<AppManager>
 {
-    public async UniTask Init(IProgress<float> progress)
+    public async UniTask Init(IProgress<float> progress, Action<string> showLoadingText)
     {
         Debug.Log("AppManager initialization started.");
 
@@ -33,11 +33,14 @@ public class AppManager : Singleton<AppManager>
         for (int i = 0; i < managers.Count; i++)
         {
             await managers[i].InitializeAsync();
+            string managerName = managers[i].GetType().Name;
+            showLoadingText?.Invoke($"<bounce a=1 f=1 w=1>Initializing {managerName}...</bounce>");
+
+            await UniTask.Delay(1000); // Simulate some delay for demonstration purposes
 
             // 진행률을 업데이트합니다. (0.0f ~ 1.0f)
             float currentProgress = (float)(i + 1) / managers.Count;
             progress?.Report(currentProgress);
-            Debug.Log($"Initialized: {managers[i].GetType().Name}. Progress: {currentProgress:P0}");
         }
 
         Debug.Log("All managers initialized successfully.");

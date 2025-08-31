@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class TitleScene : MonoBehaviour
 {
+    [SerializeField] private Text_UI _loadingText;
+
     private async UniTaskVoid Awake()
     {
         AppManager.CreateInstance();
@@ -15,13 +17,10 @@ public class TitleScene : MonoBehaviour
         {
             progressValue = value;
             // Update UI progress bar or any other UI element here
-            Debug.Log($"Initialization progress: {value:P0}");
         });
 
-        await AppManager.Instance.Init(progress);
+        await AppManager.Instance.Init(progress, _loadingText.ShowText);
 
         await UniTask.WaitUntil(() => progressValue == 1f);
-
-        Debug.Log("Initialization complete. Proceeding to next scene...");
     }
 }
