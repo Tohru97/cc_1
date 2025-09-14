@@ -3,6 +3,7 @@ using UnityEngine;
 public abstract class MonoBehaviourExtension : MonoBehaviour
 {
     // Abstract methods
+    public abstract void Awake();
     public abstract void Init();
     public abstract void Subscribe();
     public abstract void Unsubscribe();

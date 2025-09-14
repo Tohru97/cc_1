@@ -15,6 +15,13 @@ public class Text_UI : MonoBehaviour
 
     public void ShowText(string text)
     {
+        if (_textMeshPro == null)
+            _textMeshPro = GetComponent<TMP_Text>();
+
+
+        if(_textAnimator == null)
+            _textAnimator = GetComponent<TextAnimator_TMP>();
+
         _textAnimator.SetText(text);
     }
 }

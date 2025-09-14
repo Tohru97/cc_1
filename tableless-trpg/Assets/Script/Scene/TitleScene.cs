@@ -22,5 +22,10 @@ public class TitleScene : MonoBehaviour
         await AppManager.Instance.Init(progress, _loadingText.ShowText);
 
         await UniTask.WaitUntil(() => progressValue == 1f);
+
+        _loadingText.ShowText($"<bounce a=1 f=0.5 w=1>Initialization Complete!</bounce>");
+
+        await UniTask.Delay(1000);
+        AppManager.Instance.ChangeScene(eScene.MainScene);
     }
 }

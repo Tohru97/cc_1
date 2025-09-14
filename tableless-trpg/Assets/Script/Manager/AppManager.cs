@@ -3,9 +3,20 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class AppManager : Singleton<AppManager>
+public enum eScene
 {
+    TitleScene = 0,
+    MainScene = 1,
+    InGameScene = 2
+}
+
+public class AppManager : SingletonMono<AppManager>
+{
+    [SerializeField] private MainLoading _mainLoading;
+    [SerializeField] private MiniLoading _miniLoading;
+
     public async UniTask Init(IProgress<float> progress, Action<string> showLoadingText)
     {
         Debug.Log("AppManager initialization started.");
@@ -34,7 +45,7 @@ public class AppManager : Singleton<AppManager>
         {
             await managers[i].InitializeAsync();
             string managerName = managers[i].GetType().Name;
-            showLoadingText?.Invoke($"<bounce a=1 f=1 w=1>Initializing {managerName}...</bounce>");
+            showLoadingText?.Invoke($"<bounce a=1 f=0.5 w=1>Initializing {managerName}...</bounce>");
 
             await UniTask.Delay(1000); // Simulate some delay for demonstration purposes
 
@@ -44,5 +55,12 @@ public class AppManager : Singleton<AppManager>
         }
 
         Debug.Log("All managers initialized successfully.");
+    }
+
+    public async void ChangeScene(eScene scene)
+    {
+        _mainLoading.Show();
+        await SceneManager.LoadSceneAsync(scene.ToString());
+        _mainLoading.Hide();
     }
 }
