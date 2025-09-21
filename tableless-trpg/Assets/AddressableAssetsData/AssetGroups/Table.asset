@@ -15,15 +15,11 @@ MonoBehaviour:
   m_GroupName: Table
   m_GUID: 0fd88455f8eb9485bab38cfb1faf1421
   m_SerializeEntries:
-  - m_GUID: 1308ac66d80f24b5898cad1a8b792bcd
-    m_Address: event
+  - m_GUID: 88b3e3c89234bee4d841a7d63c905536
+    m_Address: Table
     m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: febe4647716184418b44b690763dd622
-    m_Address: Localization
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - table
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 6223fdd473f3f9a40bd5a0e48a21737f, type: 2}

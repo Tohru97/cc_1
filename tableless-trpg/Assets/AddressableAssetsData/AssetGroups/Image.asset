@@ -15,10 +15,11 @@ MonoBehaviour:
   m_GroupName: Image
   m_GUID: df25221cd3d0e455eb59cabe2213b789
   m_SerializeEntries:
-  - m_GUID: ac13fd5eb55e7eb47bcef8fdc5e7a6dd
-    m_Address: CatCouncil_Logo
+  - m_GUID: 4e91e17db59ea4d7e96f394c7aeb086d
+    m_Address: Image
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - image
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 6223fdd473f3f9a40bd5a0e48a21737f, type: 2}

@@ -13,7 +13,9 @@ public static class Metadata
         _eventInfo.ClearDatas();
 
         TextAsset eventData = await AddressableManager.Instance.LoadAssetAsync<TextAsset>("event");
-        
+
         _eventInfo.Parsing(CSVTool.GetDecryptData(eventData.bytes));
+        
+        AddressableManager.Instance.ReleaseAsset("event");
     }
 }
