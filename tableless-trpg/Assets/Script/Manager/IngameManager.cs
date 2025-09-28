@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class GameManager : SingletonMono<GameManager>, IInitializable
+public class IngameManager : SingletonMono<IngameManager>, IInitializable
 {
     public UniTask InitializeAsync()
     {

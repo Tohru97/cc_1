@@ -23,23 +23,25 @@ public class AppManager : SingletonMono<AppManager>
 
         List<IInitializable> managers = new List<IInitializable>();
 
-        AddressableManager.CreateInstance();
         SaveManager.CreateInstance();
-        LocalizationManager.CreateInstance();
+        AddressableManager.CreateInstance();
         DataManager.CreateInstance();
-        GameManager.CreateInstance();
+        LocalizationManager.CreateInstance();
         SoundManager.CreateInstance();
         TimeManager.CreateInstance();
         UIManager.CreateInstance();
+        PlayerInfoManager.CreateInstance();
+        IngameManager.CreateInstance();
 
-        managers.Add(AddressableManager.Instance);
         managers.Add(SaveManager.Instance);
-        managers.Add(LocalizationManager.Instance);
+        managers.Add(AddressableManager.Instance);
         managers.Add(DataManager.Instance);
-        managers.Add(GameManager.Instance);
+        managers.Add(LocalizationManager.Instance);
         managers.Add(SoundManager.Instance);
         managers.Add(TimeManager.Instance);
         managers.Add(UIManager.Instance);
+        managers.Add(PlayerInfoManager.Instance);
+        managers.Add(IngameManager.Instance);
 
         for (int i = 0; i < managers.Count; i++)
         {
