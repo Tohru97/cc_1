@@ -41,12 +41,20 @@ MonoBehaviour:
     - Febucci.TextAnimator.Demo.Runtime
     - Febucci.TextAnimator.Runtime
     - Febucci.TextAnimator.TMP.Runtime
+    - kcp2k
+    - Mirror
+    - Mirror.Authenticators
+    - Mirror.Components
+    - Mirror.Examples
+    - Mirror.Transports
+    - SimpleWebTransport
     - SingularityGroup.HotReload.Runtime
     - SingularityGroup.HotReload.Runtime.Public
     - Sirenix.OdinInspector.Modules.Unity.Addressables
     - spine-csharp
     - spine-unity
     - spine-unity-examples
+    - Telepathy
     - UniTask
     - UniTask.Addressables
     - UniTask.DOTween

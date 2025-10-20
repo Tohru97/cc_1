@@ -30,6 +30,7 @@ public class AppManager : SingletonMono<AppManager>
         SoundManager.CreateInstance();
         TimeManager.CreateInstance();
         UIManager.CreateInstance();
+        ObjectPoolManager.CreateInstance();
         PlayerInfoManager.CreateInstance();
         IngameManager.CreateInstance();
 
@@ -40,6 +41,7 @@ public class AppManager : SingletonMono<AppManager>
         managers.Add(SoundManager.Instance);
         managers.Add(TimeManager.Instance);
         managers.Add(UIManager.Instance);
+        managers.Add(ObjectPoolManager.Instance);
         managers.Add(PlayerInfoManager.Instance);
         managers.Add(IngameManager.Instance);
 
