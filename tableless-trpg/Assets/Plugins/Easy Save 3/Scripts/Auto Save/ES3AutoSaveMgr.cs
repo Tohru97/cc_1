@@ -3,11 +3,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
 
-#if UNITY_VISUAL_SCRIPTING
-[Unity.VisualScripting.IncludeInSettings(true)]
-#elif BOLT_VISUAL_SCRIPTING
-[Ludiq.IncludeInSettings(true)]
-#endif
 public class ES3AutoSaveMgr : MonoBehaviour
 {
 	public static ES3AutoSaveMgr _current = null;
