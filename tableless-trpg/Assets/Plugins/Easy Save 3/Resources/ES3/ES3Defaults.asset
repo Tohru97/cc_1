@@ -41,11 +41,6 @@ MonoBehaviour:
     - Febucci.TextAnimator.Demo.Runtime
     - Febucci.TextAnimator.Runtime
     - Febucci.TextAnimator.TMP.Runtime
-    - Mirage
-    - Mirage.Authenticators
-    - Mirage.Components
-    - Mirage.SocketLayer
-    - Mirage.Sockets.Udp
     - SingularityGroup.HotReload.Runtime
     - SingularityGroup.HotReload.Runtime.Public
     - Sirenix.OdinInspector.Modules.Unity.Addressables
@@ -57,6 +52,7 @@ MonoBehaviour:
     - UniTask.DOTween
     - UniTask.Linq
     - UniTask.TextMeshPro
+    - unity-websocket-sharp
     - Xarbrough.SelectionUtility.Runtime
     - Xarbrough.SelectionUtility.Samples
     showAdvancedSettings: 0

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,6 +34,7 @@ public class AppManager : SingletonMono<AppManager>
         ObjectPoolManager.CreateInstance();
         PlayerInfoManager.CreateInstance();
         IngameManager.CreateInstance();
+        NetworkController.CreateInstance();
 
         managers.Add(SaveManager.Instance);
         managers.Add(AddressableManager.Instance);
@@ -44,6 +46,7 @@ public class AppManager : SingletonMono<AppManager>
         managers.Add(ObjectPoolManager.Instance);
         managers.Add(PlayerInfoManager.Instance);
         managers.Add(IngameManager.Instance);
+        managers.Add(NetworkController.Instance);
 
         for (int i = 0; i < managers.Count; i++)
         {

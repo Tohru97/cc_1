@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class ObjectPoolManager : SingletonMono<ObjectPoolManager>, IInitializable
 {
-    // ObjectPoolManager
-
     public UniTask InitializeAsync()
     {
         Debug.Log("ObjectPoolManager Initialized.");
