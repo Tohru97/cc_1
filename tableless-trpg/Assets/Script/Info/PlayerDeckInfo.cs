@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerBookInfo
+public class PlayerDeckInfo
 {
     
 }

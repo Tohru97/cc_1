@@ -6,7 +6,7 @@ public class PlayerInfoManager : Singleton<PlayerInfoManager>, IInitializable
 {
     public PlayerBaseInfo _playerBaseInfo { get; private set; } = null;
     public PlayerUnlockInfo _playerUnlockInfo { get; private set; } = null;
-    public PlayerBookInfo _playerBookInfo { get; private set; } = null;
+    public PlayerDeckInfo _playerDeckInfo { get; private set; } = null;
 
     public UniTask InitializeAsync()
     {
@@ -14,7 +14,7 @@ public class PlayerInfoManager : Singleton<PlayerInfoManager>, IInitializable
 
         _playerBaseInfo = new PlayerBaseInfo();
         _playerUnlockInfo = new PlayerUnlockInfo();
-        _playerBookInfo = new PlayerBookInfo();
+        _playerDeckInfo = new PlayerDeckInfo();
 
         return UniTask.CompletedTask;
     }
