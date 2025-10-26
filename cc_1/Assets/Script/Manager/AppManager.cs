@@ -43,7 +43,7 @@ public class AppManager : SingletonMono<AppManager>
         {
             await managers[i].InitializeAsync();
             string managerName = managers[i].GetType().Name;
-            showLoadingText?.Invoke($"<bounce a=1 f=0.5 w=1>Initializing {managerName}...</bounce>");
+            showLoadingText?.Invoke($"Initializing {managerName}<bounce a=1 f=0.5 w=1>...</bounce>");
 
             await UniTask.Delay(1000); // Simulate some delay for demonstration purposes
 
