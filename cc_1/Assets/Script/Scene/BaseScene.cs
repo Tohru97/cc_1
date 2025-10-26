@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class BaseScene : MonoBehaviour
 {
-    protected virtual async UniTaskVoid Awake()
+    protected async UniTaskVoid Awake()
     {
         await LoadAsync();
         AppManager.Instance.OnSceneLoad(this);
