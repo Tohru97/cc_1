@@ -4,11 +4,21 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TitleScene : MonoBehaviour
+public class TitleScene : BaseScene
 {
     [SerializeField] private Text_UI _loadingText;
 
-    private async UniTaskVoid Awake()
+    public override eScene GetCurrentSceneType()
+    {
+        return eScene.TitleScene;
+    }
+
+    public override UniTask LoadAsync()
+    {
+        return UniTask.CompletedTask;
+    }
+
+    public async void Start()
     {
         AppManager.CreateInstance();
 
@@ -26,6 +36,6 @@ public class TitleScene : MonoBehaviour
         _loadingText.ShowText($"<bounce a=1 f=0.5 w=1>Initialization Complete!</bounce>");
 
         await UniTask.Delay(1000);
-        AppManager.Instance.ChangeScene(eScene.MainScene);
+        AppManager.Instance.ChangeScene(eScene.LobbyScene);
     }
 }

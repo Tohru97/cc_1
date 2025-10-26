@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScene.unity
     guid: 74bead9e9ac93c74a9ad5c18c6fa4de6
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
+    path: Assets/Scenes/LobbyScene.unity
     guid: 5b0e1c62aa48a8b4d966d9d01585d976
   - enabled: 1
-    path: Assets/Scenes/InGameScene.unity
+    path: Assets/Scenes/MatchScene.unity
     guid: 502d19d243abf674ab81ec34ea702ffa
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 6c4fc93f2111d4e46aed419e5c935219, type: 2}

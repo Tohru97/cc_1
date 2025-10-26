@@ -6,13 +6,6 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum eScene
-{
-    TitleScene = 0,
-    MainScene = 1,
-    InGameScene = 2
-}
-
 public class AppManager : SingletonMono<AppManager>
 {
     [SerializeField] private MainLoading _mainLoading;
@@ -33,7 +26,6 @@ public class AppManager : SingletonMono<AppManager>
         UIManager.CreateInstance();
         ObjectPoolManager.CreateInstance();
         PlayerInfoManager.CreateInstance();
-        IngameManager.CreateInstance();
         NetworkController.CreateInstance();
 
         managers.Add(SaveManager.Instance);
@@ -45,7 +37,6 @@ public class AppManager : SingletonMono<AppManager>
         managers.Add(UIManager.Instance);
         managers.Add(ObjectPoolManager.Instance);
         managers.Add(PlayerInfoManager.Instance);
-        managers.Add(IngameManager.Instance);
         managers.Add(NetworkController.Instance);
 
         for (int i = 0; i < managers.Count; i++)
@@ -68,6 +59,18 @@ public class AppManager : SingletonMono<AppManager>
     {
         _mainLoading.Show();
         await SceneManager.LoadSceneAsync(scene.ToString());
+    }
+
+    public async void OnSceneLoad(BaseScene scene)
+    {
+        if (scene.GetCurrentSceneType() == eScene.TitleScene)
+            return;
+
+        if (scene != null)
+        {
+            await scene.LoadAsync();
+        }
+
         _mainLoading.Hide();
     }
 }
